@@ -11,7 +11,7 @@
 
 Docker image for **Penpot**.
 
-:construction: **This image is still in development!**
+🚧 **This image is still in beta!**
 
 ## What is **Penpot**
 
@@ -39,16 +39,13 @@ Penpot is The Open-Source prototyping tool.
 
 ## How to run this image
 
-<!--
-    If based on official images, refer to official doc:
+You can use the example `docker-compose.yml` at the root of the project to start a local Penpot instance.
+Feel free to update the content of `.env` to your needs.
 
-See **Penpot** base image documentation for details.
+### Auto configuration via environment variables
 
-> [**Penpot** GitHub](https://github.com/penpot/penpot-exporter)
-
-> [**Penpot** DockerHub](https://hub.docker.com/r/penpot/docker-penpot-exporter-base/)
-
--->
+The exporter supports dynamic configuration through environment variables.
+Checkout Penpot documentation to get the list and their behavior: <https://github.com/penpot/penpot/blob/develop/docs/05-Configuration-Guide.md#backend>
 
 ## Questions / Issues
 
