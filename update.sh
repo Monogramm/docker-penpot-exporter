@@ -15,7 +15,7 @@ declare -A base=(
 
 declare -A dockerVariant=(
 	[buster]='debian'
-	[buster-slim]='debian'
+	[buster-slim]='debian-slim'
 	[alpine]='alpine'
 )
 

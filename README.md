@@ -1,7 +1,6 @@
 [![License: AGPL v3][uri_license_image]][uri_license]
 [![Docs](https://img.shields.io/badge/Docs-Github%20Pages-blue)](https://monogramm.github.io/penpot-exporter/)
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Monogramm/docker-penpot-exporter/Docker%20Image%20CI)](https://github.com/Monogramm/docker-penpot-exporter/actions)
-[![Build Status](https://travis-ci.org/Monogramm/docker-penpot-exporter.svg)](https://travis-ci.org/Monogramm/docker-penpot-exporter)
 [![Docker Automated buid](https://img.shields.io/docker/cloud/build/monogramm/docker-penpot-exporter.svg)](https://hub.docker.com/r/monogramm/docker-penpot-exporter/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/monogramm/docker-penpot-exporter.svg)](https://hub.docker.com/r/monogramm/docker-penpot-exporter/)
 [![Docker Version](https://images.microbadger.com/badges/version/monogramm/docker-penpot-exporter.svg)](https://microbadger.com/images/monogramm/docker-penpot-exporter)
@@ -27,13 +26,13 @@ Penpot is The Open-Source prototyping tool.
 <!-- >Docker Tags -->
 
 -   main-debian  (`images/main/buster/Dockerfile`)
--   main-debian  (`images/main/buster-slim/Dockerfile`)
+-   main-debian-slim  (`images/main/buster-slim/Dockerfile`)
 -   main-alpine main  (`images/main/alpine/Dockerfile`)
 -   develop-debian  (`images/develop/buster/Dockerfile`)
--   develop-debian  (`images/develop/buster-slim/Dockerfile`)
+-   develop-debian-slim  (`images/develop/buster-slim/Dockerfile`)
 -   develop-alpine develop  (`images/develop/alpine/Dockerfile`)
 -   1.1.0-alpha-debian 1.1-debian debian  (`images/1.1/buster/Dockerfile`)
--   1.1.0-alpha-debian 1.1-debian debian  (`images/1.1/buster-slim/Dockerfile`)
+-   1.1.0-alpha-debian-slim 1.1-debian-slim debian-slim  (`images/1.1/buster-slim/Dockerfile`)
 -   1.1.0-alpha-alpine 1.1-alpine alpine 1.1.0-alpha 1.1 latest  (`images/1.1/alpine/Dockerfile`)
 
 <!-- <Docker Tags -->
