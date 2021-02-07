@@ -1,70 +1,55 @@
-<!--
-
-Template variables to replace in ALL files:
-* __app_name__: Name of the application
-* __app_owner_slug__: GitHub Owner of the original application
-* __app_slug__: GitHub slug of the original application
-* __app_uppercase_slug__: Uppercase value of the GitHub slug
-* __app_description__: Application description
-* __app_url__: Application URL
-* __app_vendor_name__: Name of the Application vendor
-
-After replacing all variables:
-* Edit `update.sh` to edit how to retrieve the application latest versions and how to generate images
-* Edit `template/docker-compose_*.yml` to configure your Docker environment for CI
-* Edit `template/test` content for DockerHub custom tests
-
--->
-
 [![License: AGPL v3][uri_license_image]][uri_license]
-[![Docs](https://img.shields.io/badge/Docs-Github%20Pages-blue)](https://monogramm.github.io/__app_slug__/)
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Monogramm/docker-__app_slug__/Docker%20Image%20CI)](https://github.com/Monogramm/docker-__app_slug__/actions)
-[![Build Status](https://travis-ci.org/Monogramm/docker-__app_slug__.svg)](https://travis-ci.org/Monogramm/docker-__app_slug__)
-[![Docker Automated buid](https://img.shields.io/docker/cloud/build/monogramm/docker-__app_slug__.svg)](https://hub.docker.com/r/monogramm/docker-__app_slug__/)
-[![Docker Pulls](https://img.shields.io/docker/pulls/monogramm/docker-__app_slug__.svg)](https://hub.docker.com/r/monogramm/docker-__app_slug__/)
-[![Docker Version](https://images.microbadger.com/badges/version/monogramm/docker-__app_slug__.svg)](https://microbadger.com/images/monogramm/docker-__app_slug__)
-[![Docker Size](https://images.microbadger.com/badges/image/monogramm/docker-__app_slug__.svg)](https://microbadger.com/images/monogramm/docker-__app_slug__)
-[![GitHub stars](https://img.shields.io/github/stars/Monogramm/docker-__app_slug__?style=social)](https://github.com/Monogramm/docker-__app_slug__)
+[![Docs](https://img.shields.io/badge/Docs-Github%20Pages-blue)](https://monogramm.github.io/penpot-exporter/)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Monogramm/docker-penpot-exporter/Docker%20Image%20CI)](https://github.com/Monogramm/docker-penpot-exporter/actions)
+[![Docker Automated buid](https://img.shields.io/docker/cloud/build/monogramm/docker-penpot-exporter.svg)](https://hub.docker.com/r/monogramm/docker-penpot-exporter/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/monogramm/docker-penpot-exporter.svg)](https://hub.docker.com/r/monogramm/docker-penpot-exporter/)
+[![Docker Version](https://images.microbadger.com/badges/version/monogramm/docker-penpot-exporter.svg)](https://microbadger.com/images/monogramm/docker-penpot-exporter)
+[![Docker Size](https://images.microbadger.com/badges/image/monogramm/docker-penpot-exporter.svg)](https://microbadger.com/images/monogramm/docker-penpot-exporter)
+[![GitHub stars](https://img.shields.io/github/stars/Monogramm/docker-penpot-exporter?style=social)](https://github.com/Monogramm/docker-penpot-exporter)
 
-# **__app_name__** Docker image
+# **Penpot** Docker image
 
-Docker image for **__app_name__**.
+Docker image for **Penpot**.
 
-:construction: **This image is still in development!**
+🚧 **This image is still in beta!**
 
-## What is **__app_name__**
+## What is **Penpot**
 
-__app_description__
+Penpot is The Open-Source prototyping tool.
 
-> [**__app_name__**](__app_url__)
+> [**Penpot**](https://www.penpot.app/)
 
 ## Supported tags
 
-[Dockerhub monogramm/docker-__app_slug__](https://hub.docker.com/r/monogramm/docker-__app_slug__/)
+[Dockerhub monogramm/docker-penpot-exporter](https://hub.docker.com/r/monogramm/docker-penpot-exporter/)
 
 <!-- >Docker Tags -->
 
--   1.0.0-debian 1.0-debian debian  (`images/1.0/debian/Dockerfile`)
--   1.0.0-alpine 1.0-alpine alpine 1.0.0 1.0 latest  (`images/1.0/alpine/Dockerfile`)
+-   main-debian  (`images/main/buster/Dockerfile`)
+-   main-debian-slim  (`images/main/buster-slim/Dockerfile`)
+-   main-alpine main  (`images/main/alpine/Dockerfile`)
+-   develop-debian  (`images/develop/buster/Dockerfile`)
+-   develop-debian-slim  (`images/develop/buster-slim/Dockerfile`)
+-   develop-alpine develop  (`images/develop/alpine/Dockerfile`)
+-   1.1.0-alpha-debian 1.1-debian debian  (`images/1.1/buster/Dockerfile`)
+-   1.1.0-alpha-debian-slim 1.1-debian-slim debian-slim  (`images/1.1/buster-slim/Dockerfile`)
+-   1.1.0-alpha-alpine 1.1-alpine alpine 1.1.0-alpha 1.1 latest  (`images/1.1/alpine/Dockerfile`)
 
 <!-- <Docker Tags -->
 
 ## How to run this image
 
-<!--
-    If based on official images, refer to official doc:
+You can use the example `docker-compose.yml` at the root of the project to start a local Penpot instance.
+Feel free to update the content of `.env` to your needs.
 
-See **__app_name__** base image documentation for details.
+### Auto configuration via environment variables
 
-> [**__app_name__** GitHub](https://github.com/__app_owner_slug__/__app_slug__)
-
-> [**__app_name__** DockerHub](https://hub.docker.com/r/__app_owner_slug__/docker-__app_slug__-base/)
-
--->
+The exporter supports dynamic configuration through environment variables.
+Checkout Penpot documentation to get the list and their behavior: <https://github.com/penpot/penpot/blob/develop/docs/05-Configuration-Guide.md#backend>
 
 ## Questions / Issues
 
-If you got any questions or problems using the image, please visit our [Github Repository](https://github.com/Monogramm/docker-__app_slug__) and write an issue.
+If you got any questions or problems using the image, please visit our [Github Repository](https://github.com/Monogramm/docker-penpot-exporter) and write an issue.
 
 [uri_license]: http://www.gnu.org/licenses/agpl.html
 
