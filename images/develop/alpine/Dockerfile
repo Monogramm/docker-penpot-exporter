@@ -17,6 +17,10 @@ WORKDIR /home/penpot/exporter
 
 ARG PENPOT_PUBLIC_URI=http://penppot-frontend:80
 
+# Tell Puppeteer to skip installing Chrome. We'll be using the installed package.
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
+    PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+
 # Fetch dependencies (cache them on this step) and build
 RUN set -ex; \
     ./scripts/build.sh; \
@@ -52,6 +56,10 @@ RUN set -ex; \
         nss \
     ; \
     rm -rf /var/cache/apk/*;
+
+# Tell Puppeteer to skip installing Chrome. We'll be using the installed package.
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
+    PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
 ARG EXTERNAL_UID=5001
 
