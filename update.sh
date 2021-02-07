@@ -2,27 +2,31 @@
 set -eo pipefail
 
 declare -A compose=(
-	[debian]='debian'
+	[buster]='debian'
+	[buster-slim]='debian'
 	[alpine]='alpine'
 )
 
 declare -A base=(
-	[debian]='debian'
+	[buster]='debian'
+	[buster-slim]='debian'
 	[alpine]='alpine'
 )
 
 declare -A dockerVariant=(
-	[debian]='debian'
+	[buster]='debian'
+	[buster-slim]='debian'
 	[alpine]='alpine'
 )
 
 variants=(
-	debian
+	buster
+	buster-slim
 	alpine
 )
 
-min_version='1.0'
-dockerLatest='1.0'
+min_version='1.1'
+dockerLatest='1.1'
 dockerDefaultVariant='alpine'
 
 
@@ -31,12 +35,15 @@ function version_greater_or_equal() {
 	[[ "$(printf '%s\n' "$@" | sort -V | head -n 1)" != "$1" || "$1" == "$2" ]];
 }
 
-dockerRepo="monogramm/docker-__app_slug__"
-# Retrieve automatically the latest versions
-#latests=( $( curl -fsSL 'https://api.github.com/repos/__app_owner_slug__/__app_slug__/tags' |tac|tac| \
-#	grep -oE '[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+' | \
-#	sort -urV ) )
-latests=( 1.0.0 )
+dockerRepo="monogramm/docker-penpot-exporter"
+# Retrieve automatically the latest versions (when release available)
+latests=(
+	main
+	develop
+	$( curl -fsSL 'https://api.github.com/repos/penpot/penpot/tags' |tac|tac| \
+	grep -oE '[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+(-alpha|-beta)?' | \
+	sort -urV )
+)
 
 # Remove existing images
 echo "reset docker images"
@@ -64,8 +71,8 @@ for latest in "${latests[@]}"; do
 			template="Dockerfile.${base[$variant]}"
 			cp "template/$template" "$dir/Dockerfile"
 			cp "template/entrypoint.sh" "$dir/entrypoint.sh"
-
 			cp "template/.dockerignore" "$dir/.dockerignore"
+
 			cp -r "template/hooks" "$dir/"
 			cp -r "template/test" "$dir/"
 			cp "template/.env" "$dir/.env"
@@ -73,12 +80,12 @@ for latest in "${latests[@]}"; do
 
 			# Replace the variables.
 			sed -ri -e '
-				s/%%VARIANT%%/-'"$variant"'/g;
+				s/%%VARIANT%%/'"$variant"'/g;
 				s/%%VERSION%%/'"$latest"'/g;
 			' "$dir/Dockerfile"
 
 			sed -ri -e '
-				s|DOCKER_TAG=.*|DOCKER_TAG='"$version"'|g;
+				s|DOCKER_TAG=.*|DOCKER_TAG='"$latest"'|g;
 				s|DOCKER_REPO=.*|DOCKER_REPO='"$dockerRepo"'|g;
 			' "$dir/hooks/run"
 

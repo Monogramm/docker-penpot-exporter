@@ -1,8 +1,0 @@
-#!/bin/bash
-
-# See documentation for details:
-# https://docs.docker.com/docker-hub/builds/advanced/
-
-#echo 'Preparing persisted data...'
-#mkdir -p "/srv/__app_slug__/data"
-#chown 777 "/srv/__app_slug__/data"
