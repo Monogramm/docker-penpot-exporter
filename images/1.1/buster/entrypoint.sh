@@ -116,7 +116,7 @@ init() {
 start() {
     init
 
-    echo "Start main service"
+    log "Start main service"
     node ./app.js
 }
 
