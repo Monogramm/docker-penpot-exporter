@@ -1,6 +1,6 @@
 FROM monogramm/docker-penpot-builder:develop as builder
 
-ARG VERSION=1.2.0-alpha
+ARG VERSION=1.3.0-alpha
 
 # Download source from github
 ADD https://github.com/penpot/penpot/archive/${VERSION}.tar.gz /tmp/penpot.tar.gz
@@ -99,7 +99,7 @@ EXPOSE 6061
 # Arguments to label built container
 ARG VCS_REF
 ARG BUILD_DATE
-ARG VERSION=1.2.0-alpha
+ARG VERSION=1.3.0-alpha
 
 # Keep track of image version
 RUN set -ex; \
