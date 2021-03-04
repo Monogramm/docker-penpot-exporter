@@ -96,8 +96,6 @@ RUN set -ex; \
 
 USER penpot
 
-ENV PENPOT_VERSION=$VERSION
-
 # Container labels (http://label-schema.org/)
 # Container annotations (https://github.com/opencontainers/image-spec)
 LABEL maintainer="Monogramm maintainers <opensource at monogramm dot io>" \
