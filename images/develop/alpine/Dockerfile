@@ -1,11 +1,11 @@
 FROM monogramm/docker-penpot-builder:develop as builder
 
-ARG VERSION=develop
+ARG PENPOT_VERSION=develop
 
 # Download source from github
-ADD https://github.com/penpot/penpot/archive/${VERSION}.tar.gz /tmp/penpot.tar.gz
+ADD https://github.com/penpot/penpot/archive/${PENPOT_VERSION}.tar.gz /tmp/penpot.tar.gz
 # or copy exporter from source and build release
-#COPY . /home/penpot/penpot-${VERSION}/exporter
+#COPY . /home/penpot/penpot-${PENPOT_VERSION}/exporter
 
 WORKDIR /home/penpot
 
@@ -95,6 +95,8 @@ RUN set -ex; \
     echo "${VERSION} ${VCS_REF} ${BUILD_DATE}" > '/app/src/.docker-version'
 
 USER penpot
+
+ENV PENPOT_VERSION=$VERSION
 
 # Container labels (http://label-schema.org/)
 # Container annotations (https://github.com/opencontainers/image-spec)
