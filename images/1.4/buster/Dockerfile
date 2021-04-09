@@ -1,6 +1,6 @@
 FROM monogramm/docker-penpot-builder:develop as builder
 
-ARG PENPOT_VERSION=1.3.0-alpha
+ARG PENPOT_VERSION=1.4.0-alpha
 
 # Download source from github
 ADD https://github.com/penpot/penpot/archive/${PENPOT_VERSION}.tar.gz /tmp/penpot.tar.gz
@@ -17,58 +17,70 @@ WORKDIR /home/penpot/exporter
 
 ARG PENPOT_PUBLIC_URI=http://penppot-frontend:80
 
-# Tell Puppeteer to skip installing Chrome. We'll be using the installed package.
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
-    PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
-
 # Fetch dependencies (cache them on this step) and build
 RUN set -ex; \
     ./scripts/build.sh; \
     ls -al ./target
 
 # Once application has been built, prepare production image
-FROM node:lts-alpine
+FROM node:lts-buster
 
 # Add requirements and install application
 RUN set -ex; \
-    apk update; \
-    apk add --no-cache \
+    apt-get -qq update; \
+    apt-get -qqy install \
         curl \
-        gnupg \
-        chromium \
-        freetype \
-        freetype-dev \
-        harfbuzz \
-        ca-certificates \
-        ttf-freefont \
+        gnupg2 \
         imagemagick \
-        libwebp \
+        webp \
+        netpbm \
         potrace \
-        atk \
-        cairo \
-        cups \
-        dbus \
-        expat \
-        fontconfig \
-        nspr \
-        pango \
-        xrandr \
-        nss \
+        gconf-service \
+        libasound2 \
+        libatk1.0-0 \
+        libatk-bridge2.0-0 \
+        libcairo2 \
+        libcups2 \
+        libdbus-1-3 \
+        libexpat1 \
+        libfontconfig1 \
+        libgcc1 \
+        libgconf-2-4 \
+        libgdk-pixbuf2.0-0 \
+        libglib2.0-0 \
+        libgtk-3-0 \
+        libnspr4 \
+        libpango-1.0-0 \
+        libpangocairo-1.0-0 \
+        libx11-6 \
+        libx11-xcb1 \
+        libxcb1 \
+        libxcb-dri3-0 \
+        libxcomposite1 \
+        libxcursor1 \
+        libxdamage1 \
+        libxext6 \
+        libxfixes3 \
+        libxi6 \
+        libxrandr2 \
+        libxrender1 \
+        libxss1 \
+        libxtst6 \
+        fonts-liberation \
+        libappindicator1 \
+        libnss3 \
+        libgbm1 \
     ; \
-    rm -rf /var/cache/apk/*;
-
-# Tell Puppeteer to skip installing Chrome. We'll be using the installed package.
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
-    PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+    rm -rf /var/lib/apt/lists/*;
 
 ARG EXTERNAL_UID=5001
 
 # add new user
 RUN set -ex; \
-    adduser \
-        --disabled-password \
+    useradd \
         -u "$EXTERNAL_UID" \
-        -D penpot \
+        -U \
+        penpot \
     ;
 
 # Add penpot as provided by builder and create directories
@@ -87,7 +99,7 @@ EXPOSE 6061
 # Arguments to label built container
 ARG VCS_REF
 ARG BUILD_DATE
-ARG VERSION=1.3.0-alpha
+ARG VERSION=1.4.0-alpha
 
 # Keep track of image version
 RUN set -ex; \
