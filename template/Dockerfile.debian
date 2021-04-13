@@ -1,4 +1,6 @@
 FROM monogramm/docker-penpot-builder:develop as builder
+# TODO Use official devenv as builder
+#FROM penpotapp/devenv:latest as builder
 
 ARG PENPOT_VERSION=%%VERSION%%
 
@@ -19,7 +21,7 @@ ARG PENPOT_PUBLIC_URI=http://penppot-frontend:80
 
 # Fetch dependencies (cache them on this step) and build
 RUN set -ex; \
-    ./scripts/build.sh; \
+    ./scripts/build; \
     ls -al ./target
 
 # Once application has been built, prepare production image
