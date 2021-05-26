@@ -2,7 +2,7 @@ FROM monogramm/docker-penpot-builder:develop as builder
 # TODO Use official devenv as builder
 #FROM penpotapp/devenv:latest as builder
 
-ARG PENPOT_VERSION=1.5.4-alpha
+ARG PENPOT_VERSION=1.6.1-alpha
 
 # Download source from github
 ADD https://github.com/penpot/penpot/archive/${PENPOT_VERSION}.tar.gz /tmp/penpot.tar.gz
@@ -25,7 +25,7 @@ RUN set -ex; \
     ls -al ./target
 
 # Once application has been built, prepare production image
-FROM node:lts-buster-slim
+FROM node:lts-buster
 
 # Add requirements and install application
 RUN set -ex; \
@@ -101,7 +101,7 @@ EXPOSE 6061
 # Arguments to label built container
 ARG VCS_REF
 ARG BUILD_DATE
-ARG VERSION=1.5.4-alpha
+ARG VERSION=1.6.1-alpha
 
 # Keep track of image version
 RUN set -ex; \

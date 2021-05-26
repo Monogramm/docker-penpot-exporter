@@ -31,9 +31,12 @@ Penpot is The Open-Source prototyping tool.
 -   develop-debian  (`images/develop/buster/Dockerfile`)
 -   develop-debian-slim  (`images/develop/buster-slim/Dockerfile`)
 -   develop-alpine develop  (`images/develop/alpine/Dockerfile`)
--   1.5.2-alpha-debian 1.5-debian debian  (`images/1.5/buster/Dockerfile`)
--   1.5.2-alpha-debian-slim 1.5-debian-slim debian-slim  (`images/1.5/buster-slim/Dockerfile`)
--   1.5.2-alpha-alpine 1.5-alpine alpine 1.5.2-alpha 1.5 latest  (`images/1.5/alpine/Dockerfile`)
+-   1.6.1-alpha-debian 1.6-debian  (`images/1.6/buster/Dockerfile`)
+-   1.6.1-alpha-debian-slim 1.6-debian-slim  (`images/1.6/buster-slim/Dockerfile`)
+-   1.6.1-alpha-alpine 1.6-alpine 1.6.1-alpha 1.6  (`images/1.6/alpine/Dockerfile`)
+-   1.5.4-alpha-debian 1.5-debian debian  (`images/1.5/buster/Dockerfile`)
+-   1.5.4-alpha-debian-slim 1.5-debian-slim debian-slim  (`images/1.5/buster-slim/Dockerfile`)
+-   1.5.4-alpha-alpine 1.5-alpine alpine 1.5.4-alpha 1.5 latest  (`images/1.5/alpine/Dockerfile`)
 
 <!-- <Docker Tags -->
 
