@@ -2,7 +2,7 @@ FROM monogramm/docker-penpot-builder:develop as builder
 # TODO Use official devenv as builder
 #FROM penpotapp/devenv:latest as builder
 
-ARG PENPOT_VERSION=1.6.1-alpha
+ARG PENPOT_VERSION=1.6.4-alpha
 
 # Download source from github
 ADD https://github.com/penpot/penpot/archive/${PENPOT_VERSION}.tar.gz /tmp/penpot.tar.gz
@@ -89,7 +89,7 @@ EXPOSE 6061
 # Arguments to label built container
 ARG VCS_REF
 ARG BUILD_DATE
-ARG VERSION=1.6.1-alpha
+ARG VERSION=1.6.4-alpha
 
 # Keep track of image version
 RUN set -ex; \
