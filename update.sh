@@ -26,7 +26,7 @@ variants=(
 )
 
 min_version='1.6'
-dockerLatest='1.6'
+dockerLatest='1.7'
 dockerDefaultVariant='alpine'
 
 

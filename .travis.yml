@@ -50,6 +50,9 @@ env: # Environments
     - VERSION=1.6 VARIANT=alpine
     - VERSION=1.6 VARIANT=buster-slim
     - VERSION=1.6 VARIANT=buster
+    - VERSION=1.7 VARIANT=alpine
+    - VERSION=1.7 VARIANT=buster-slim
+    - VERSION=1.7 VARIANT=buster
     - VERSION=develop VARIANT=alpine
     - VERSION=develop VARIANT=buster-slim
     - VERSION=develop VARIANT=buster
