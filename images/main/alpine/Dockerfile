@@ -29,7 +29,7 @@ RUN set -ex; \
     ls -al ./target
 
 # Once application has been built, prepare production image
-FROM node:lts-alpine
+FROM node:14.17.6-alpine3.11
 
 # Add requirements and install application
 RUN set -ex; \
