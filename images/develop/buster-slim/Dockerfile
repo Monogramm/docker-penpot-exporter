@@ -25,7 +25,7 @@ RUN set -ex; \
     ls -al ./target
 
 # Once application has been built, prepare production image
-FROM node:lts-buster-slim
+FROM node:16.15.0-slim
 
 # Add requirements and install application
 RUN set -ex; \
